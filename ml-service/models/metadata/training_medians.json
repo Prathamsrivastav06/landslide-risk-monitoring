@@ -1,0 +1,10 @@
+{
+  "rainfall_24h_mm": 9.47,
+  "rainfall_3d_mm": 27.15,
+  "rainfall_7d_mm": 60.18,
+  "soil_moisture": 0.25834999999999997,
+  "elevation_m": 1639.8,
+  "slope_degree": 23.634999999999998,
+  "historical_landslide_density": 0.0255,
+  "historical_landslide_count": 2.0
+}

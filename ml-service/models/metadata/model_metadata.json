@@ -1,0 +1,54 @@
+{
+  "version_name": "rf_calibrated_v2.0",
+  "algorithm": "RandomForestClassifier (Calibrated Sigmoid/Platt Scaling)",
+  "trained_at": "2026-09-10T08:09:32.905939Z",
+  "training_samples": 2500,
+  "positive_samples": 900,
+  "negative_samples": 1600,
+  "metrics": {
+    "roc_auc": 0.8907,
+    "f1": 0.7333,
+    "precision": 0.7333,
+    "recall": 0.7333
+  },
+  "roc_auc": 0.8907,
+  "f1": 0.7333,
+  "precision": 0.7333,
+  "recall": 0.7333,
+  "confusion_matrix": [
+    [
+      272,
+      48
+    ],
+    [
+      48,
+      132
+    ]
+  ],
+  "feature_importance": {
+    "rainfall_24h_mm": 0.1314,
+    "rainfall_3d_mm": 0.1561,
+    "rainfall_7d_mm": 0.1494,
+    "soil_moisture": 0.102,
+    "elevation_m": 0.0839,
+    "slope_degree": 0.2372,
+    "historical_landslide_density": 0.0701,
+    "historical_landslide_count": 0.0699
+  },
+  "features_used": [
+    "rainfall_24h_mm",
+    "rainfall_3d_mm",
+    "rainfall_7d_mm",
+    "soil_moisture",
+    "elevation_m",
+    "slope_degree",
+    "historical_landslide_density",
+    "historical_landslide_count"
+  ],
+  "hyperparameters": {
+    "n_estimators": 300,
+    "max_depth": 10,
+    "calibration": "sigmoid"
+  },
+  "validation_method": "Stratified 5-Fold Cross Validation + Holdout Test"
+}

@@ -1,0 +1,251 @@
+[
+  {
+    "name": "ML Service Health (/health)",
+    "status": "PASS",
+    "message": "Status: online, Model loaded: True",
+    "details": {
+      "status": "online",
+      "model_loaded": true,
+      "timestamp": "2026-09-10T10:09:29.319195"
+    },
+    "screenshot": null
+  },
+  {
+    "name": "ML Prediction (/predict)",
+    "status": "PASS",
+    "message": "Risk Probability: 0.6281, Class: HIGH",
+    "details": {
+      "available": true,
+      "risk_probability": 0.6281,
+      "risk_class": "HIGH",
+      "shap_values": {
+        "rainfall_24h_mm": 0.0795,
+        "rainfall_3d_mm": 0.0359,
+        "rainfall_7d_mm": -0.0207,
+        "soil_moisture": -0.0082,
+        "elevation_m": 0.0027,
+        "slope_degree": -0.0307,
+        "historical_landslide_density": 0.008,
+        "historical_landslide_count": 0.0147
+      },
+      "feature_importance": {
+        "rainfall_24h_mm": 0.1271,
+        "rainfall_3d_mm": 0.1592,
+        "rainfall_7d_mm": 0.1475,
+        "soil_moisture": 0.1071,
+        "elevation_m": 0.0846,
+        "slope_degree": 0.2372,
+        "historical_landslide_density": 0.0675,
+        "historical_landslide_count": 0.0698
+      },
+      "model_version": "rf_calibrated_v2.0",
+      "features_used": [
+        "rainfall_24h_mm",
+        "rainfall_3d_mm",
+        "rainfall_7d_mm",
+        "soil_moisture",
+        "elevation_m",
+        "slope_degree",
+        "historical_landslide_density",
+        "historical_landslide_count"
+      ],
+      "missing_features": [],
+      "confidence_note": null,
+      "prediction_time": "2026-09-10T10:09:31.769875Z",
+      "imputation_notes": [],
+      "lat": 27.33,
+      "lon": 88.62
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Backend Data Sources (/api/data-sources/health)",
+    "status": "PASS",
+    "message": "System: {'database': 'CONNECTED', 'ml_service': 'ONLINE', 'api_server': 'ONLINE'}",
+    "details": {
+      "sources": [
+        {
+          "name": "ISRO_NRSC_LANDSLIDES",
+          "display_name": "ISRO/NRSC Landslide Atlas",
+          "source_type": "historical_landslides",
+          "status": "UNKNOWN",
+          "last_sync": null,
+          "record_count": null,
+          "requires_auth": false,
+          "notes": "Manual download required."
+        },
+        {
+          "name": "NASA_GPM_IMERG",
+          "display_name": "NASA POWER Precipitation",
+          "source_type": "rainfall",
+          "status": "TIMEOUT",
+          "last_sync": null,
+          "record_count": null,
+          "requires_auth": false,
+          "notes": "MERRA-2 reanalysis. Multi-month lag."
+        },
+        {
+          "name": "NASA_SMAP",
+          "display_name": "NASA SMAP Soil Moisture",
+          "source_type": "soil_moisture",
+          "status": "UNKNOWN",
+          "last_sync": null,
+          "record_count": null,
+          "requires_auth": true,
+          "notes": "36km resolution. Needs Earthdata account."
+        },
+        {
+          "name": "SRTM_ELEVATION",
+          "display_name": "SRTM via open-elevation.com",
+          "source_type": "dem",
+          "status": "UNAVAILABLE",
+          "last_sync": null,
+          "record_count": null,
+          "requires_auth": false,
+          "notes": "30m resolution. Feb 2000."
+        }
+      ],
+      "system": {
+        "database": "CONNECTED",
+        "ml_service": "ONLINE",
+        "api_server": "ONLINE"
+      },
+      "checked_at": "2026-09-10T10:09:34.839Z"
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Backend Terrain (/api/terrain)",
+    "status": "PASS",
+    "message": "Elevation: 1586m, Slope: 28.48\u00b0",
+    "details": {
+      "available": true,
+      "elevation_m": 1586,
+      "slope_degree": 28.48,
+      "source": "SRTM via open-elevation.com",
+      "computed_at": "2026-09-10T10:02:48.540Z"
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Backend Nearby Landslides (/api/landslides/nearby)",
+    "status": "PASS",
+    "message": "Found 5 historical events near Sikkim",
+    "details": {
+      "count": 5
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Backend Full Risk Analysis (/api/risk)",
+    "status": "PASS",
+    "message": "Class: LOW, Prob: 0.0992, Alert Created: False",
+    "details": {
+      "available": true,
+      "risk_probability": 0.0992,
+      "risk_class": "LOW",
+      "shap_values": {
+        "rainfall_24h_mm": -0.0377,
+        "rainfall_3d_mm": -0.0622,
+        "rainfall_7d_mm": -0.0426,
+        "soil_moisture": -0.0385,
+        "elevation_m": -0.021,
+        "slope_degree": -0.0164,
+        "historical_landslide_density": -0.0423,
+        "historical_landslide_count": -0.0483
+      },
+      "feature_importance": {
+        "rainfall_24h_mm": 0.1271,
+        "rainfall_3d_mm": 0.1592,
+        "rainfall_7d_mm": 0.1475,
+        "soil_moisture": 0.1071,
+        "elevation_m": 0.0846,
+        "slope_degree": 0.2372,
+        "historical_landslide_density": 0.0675,
+        "historical_landslide_count": 0.0698
+      },
+      "model_version": "rf_calibrated_v2.0",
+      "missing_features": [
+        "rainfall",
+        "soil_moisture"
+      ]
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Backend Login Authentication (/api/auth/login)",
+    "status": "PASS",
+    "message": "Logged in user: authority@landslide-sys.gov.in",
+    "details": {
+      "token_received": true
+    },
+    "screenshot": null
+  },
+  {
+    "name": "Dashboard Page Render",
+    "status": "PASS",
+    "message": "Dashboard rendered successfully with navbar and status bar",
+    "details": {
+      "title": "Landslide Intelligence Command Center | SIH 2026"
+    },
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\01_dashboard_loaded.png"
+  },
+  {
+    "name": "Location Risk Analysis Panel",
+    "status": "PASS",
+    "message": "Terrain: True, Weather: True, Risk Score: True",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\02_location_risk_panel.png"
+  },
+  {
+    "name": "Map Layer Toggle",
+    "status": "PASS",
+    "message": "Layer toggles visible",
+    "details": {},
+    "screenshot": null
+  },
+  {
+    "name": "Analytics Page & Recharts",
+    "status": "PASS",
+    "message": "Historical analytics charts loaded successfully",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\03_analytics_page.png"
+  },
+  {
+    "name": "Field Report Submission",
+    "status": "PASS",
+    "message": "Field report submitted with GPS and form payload",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\04_field_report_form.png"
+  },
+  {
+    "name": "Alert Management Page",
+    "status": "PASS",
+    "message": "Alerts list view and status filters displayed",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\05_alerts_page.png"
+  },
+  {
+    "name": "Data Sources Page",
+    "status": "PASS",
+    "message": "Data sources grid and telemetry cards displayed",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\06_data_sources_page.png"
+  },
+  {
+    "name": "Limitations & Roadmap Page",
+    "status": "PASS",
+    "message": "Scientific transparency and roadmap phases verified",
+    "details": {},
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\07_limitations_page.png"
+  },
+  {
+    "name": "User Login & JWT Storage",
+    "status": "PASS",
+    "message": "Successfully logged in and saved JWT token: True",
+    "details": {
+      "token_exists": true
+    },
+    "screenshot": "D:\\Landslide project\\scripts\\../test-results/screenshots\\09_dashboard_authenticated.png"
+  }
+]
